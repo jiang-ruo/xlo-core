@@ -1,6 +1,6 @@
 package xlo.database.dbcpool;
 
-import xlo.boolgroup.BoolGroup;
+import xlo.tools.boolgroup.BoolGroup;
 import xlo.database.exception.ConnPoolIsRunningException;
 import xlo.database.exception.ConnPoolNotReadyException;
 import xlo.util.ValueVerifyUtil;

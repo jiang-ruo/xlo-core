@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * @author XiaoLOrange
  * @time 2020.11.03
- * @title
+ * @title 该类的getGet和getSet在封装时忽略了字段第二个字母大写时，第一个字母不变的情况
  */
 
 public class FindMethodUtil {
@@ -101,7 +101,18 @@ public class FindMethodUtil {
 	 * @return
 	 */
 	public static Method getGetMethod(Class clazz, Field field, Class... pts){
-		String name = "get" + StringUtil.toUpperFirstCase(field.getName());
+		return getGetMethod(clazz, field.getName(), pts);
+	}
+
+	/**
+	 * 获取具有指定参数的get方法
+	 * @param clazz
+	 * @param field
+	 * @param pts
+	 * @return
+	 */
+	public static Method getGetMethod(Class clazz, String field, Class... pts){
+		String name = "get" + StringUtil.toUpperFirstCase(field);
 		return getMethod(clazz, name, pts);
 	}
 

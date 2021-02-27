@@ -1,4 +1,4 @@
-package xlo.boolgroup;
+package xlo.tools.boolgroup;
 
 import xlo.util.math.NumUtil;
 

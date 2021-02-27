@@ -29,6 +29,26 @@ public class NumUtil {
 	}
 
 	/**
+	 * 判断数字是否是整型
+	 * @return
+	 */
+	public static boolean isInteger(Class clazz){
+		return (clazz == byte.class || clazz == Byte.class
+				|| clazz == short.class || clazz == Short.class
+				|| clazz == int.class || clazz == Integer.class
+				|| clazz == long.class || clazz == Long.class);
+	}
+
+	/**
+	 * 判断数字是否是浮点数
+	 * @return
+	 */
+	public static boolean isFloat(Class clazz){
+		return (clazz == float.class || clazz == Float.class
+				|| clazz == double.class || clazz == Double.class);
+	}
+
+	/**
 	 * 判断传入的数字类型是否是数字的基本数字类型
 	 * @param clazz
 	 * @return
@@ -113,11 +133,14 @@ public class NumUtil {
 	 */
 	public static Long toLong(Object value){
 		if(value == null) return null;
+
 		Long num = null;
 		try {
 			num = Long.parseLong(value.toString());
 		}catch (NumberFormatException e){
 //			e.printStackTrace();
+			Double d = toDouble(value);
+			if(d != null) num = d.longValue();
 		}
 		return num;
 	}
@@ -179,6 +202,10 @@ public class NumUtil {
 
 		T t = null;
 		try {
+			if(isInteger(clazz)) {
+				Long l = toLong(str);
+				if(l != null) str = l.toString();
+			}
 			t = clazz.getDeclaredConstructor(String.class).newInstance(str);
 		} catch (InstantiationException | NoSuchMethodException | IllegalAccessException | InvocationTargetException | NumberFormatException e) {
 //			e.printStackTrace();

@@ -1,5 +1,6 @@
 package xlo.util.reflect.annotation;
 
+import xlo.util.PackageScan;
 import xlo.util.file.JFileUtil;
 
 import java.lang.annotation.Annotation;
@@ -8,6 +9,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author XiaoLOrange
@@ -18,73 +20,75 @@ import java.util.LinkedList;
 public class AnnoUtil {
 
 	/**
-	 * 获取具有指定注解的类
+	 * 获取指定的包下，具有指定注解的类
 	 * 为空则获取所有带有注解的类
+	 * @param packagi
 	 * @param annos
 	 * @return
 	 */
-	public static LinkedList<AnnoClass> getClasses(Class... annos){
+	public static LinkedList<AnnoClass> getClasses(String packagi, Class... annos){
 		LinkedList container = new LinkedList();
 		//获取当前工程下的所有.class文件，不包括架包中的文件
-		Class[] cs = JFileUtil.getClasses();
+//		Class[] cs = JFileUtil.getClasses();
+		List<Class> cs = PackageScan.scanPackage(packagi);
 
 		Annotation[] as;
-		for (int i = 0; i < cs.length; i++){
-			//
-			as = getAnno(cs[i], annos);
-			if(as.length > 0) container.add(new AnnoClass(cs[i], as));
+		for (Class c: cs){
+			as = getAnno(c, annos);
+			if(as.length > 0) container.add(new AnnoClass(c, as));
 		}
 		return container;
 	}
 
 	/**
-	 * 获取所有带有指定注解的属性
+	 * 获取指定包下带有指定注解的属性
 	 * 为空则获取所有带有注解的属性
+	 * @param packagi
 	 * @param annos
 	 * @return
 	 */
-	public static LinkedList<AnnoField> getFields(Class... annos){
+	public static LinkedList<AnnoField> getFields(String packagi, Class... annos){
 		LinkedList container = new LinkedList();
 		//获取所有的类。
-		Class[] cs = JFileUtil.getClasses();
+		//获取当前工程下的所有.class文件，不包括架包中的文件
+//		Class[] cs = JFileUtil.getClasses();
+		List<Class> cs = PackageScan.scanPackage(packagi);
 
-		Class clazz;
 		Field[] fs;
 		Annotation[] as;
-		for (int i = 0; i < cs.length; i++){
-			clazz = cs[i];
+		for (Class clazz: cs){
 			//获取类中的所有字段
 			fs = clazz.getDeclaredFields();
-			for (int n = 0; n < fs.length; n++){
-				as = getAnno(fs[i], annos);
-				if(as.length > 0) container.add(new AnnoField(clazz, as, fs[i]));
+			for(Field f: fs){
+				as = getAnno(f, annos);
+				if(as.length > 0) container.add(new AnnoField(clazz, as, f));
 			}
 		}
 		return container;
 	}
 
 	/**
-	 * 获取所有指定注解的方法
+	 * 获取指定包下所有指定注解的方法
 	 * 为空则获取所有带有注解的方法
 	 * @param annos
 	 * @return
 	 */
-	public static LinkedList<AnnoMethod> getMethods(Class... annos){
+	public static LinkedList<AnnoMethod> getMethods(String packagi, Class... annos){
 		LinkedList container = new LinkedList();
 		//获取所有的类。
-		Class[] cs = JFileUtil.getClasses();
 
-		Class clazz;
+		//获取当前工程下的所有.class文件，不包括架包中的文件
+//		Class[] cs = JFileUtil.getClasses();
+		List<Class> cs = PackageScan.scanPackage(packagi);
+
 		Method[] ms;
 		Annotation[] as;
-		for (int i = 0; i < cs.length; i++){
-			clazz = cs[i];
-
+		for (Class clazz: cs){
 			//获取类中的所有方法
 			ms = clazz.getDeclaredMethods();
-			for (int n = 0; n < ms.length; n++){
-				as = getAnno(ms[n], annos);
-				if(as.length > 0) container.add(new AnnoMethod(clazz, as, ms[n]));
+			for (Method m: ms){
+				as = getAnno(m, annos);
+				if(as.length > 0) container.add(new AnnoMethod(clazz, as, m));
 			}
 		}
 		return container;

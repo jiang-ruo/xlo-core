@@ -276,7 +276,7 @@ public class CoreDao<T> {
 	 * setObject怀疑setObject方法会比XLO-0.4之前的版本使用setInt,setString等方法慢
 	 * @throws SQLException
 	 */
-	void inputParam(PreparedStatement pstmt, Object[] params) throws SQLException {
+	 protected void inputParam(PreparedStatement pstmt, Object[] params) throws SQLException {
 		if(params == null) return;
 		for (int i = 0; i < params.length; i++) {
 			pstmt.setObject(i + 1, params[i]);

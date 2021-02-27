@@ -6,6 +6,7 @@ import java.util.LinkedList;
  * @author XiaoLOrange
  * @time 2020.11.29
  * @title 连接池管理线程
+ * 优化，在程序退出时关闭所有连接：addShutdownHook
  */
 
 class CPManager implements Runnable{

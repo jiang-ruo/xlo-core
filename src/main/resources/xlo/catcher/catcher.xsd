@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
+<!--targetNamespace需要和xmlns保持一致，且最好使用绝对路径-->
+<!--xml中xmlns和xsi:schemaLocation引用上方的值用于寻找xsd文件-->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		   targetNamespace="catcher"
-		   xmlns:c="catcher"
+		   targetNamespace="http://xlo/xsd/catcher"
+		   xmlns:c="http://xlo/xsd/catcher"
 		   elementFormDefault="qualified">
 
 	<xs:element name="catcher">

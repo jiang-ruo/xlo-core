@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <catcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xmlns="catcher"
-		 xsi:schemaLocation="catcher catcher.xsd">
+		 xmlns="http://xlo/xsd/catcher"
+		 xsi:schemaLocation="http://xlo/xsd/catcher
+		 https://raw.githubusercontent.com/jiang-ruo/xlo-core/main/src/main/resources/xlo/catcher/catcher.xsd">
 
 <!--	未登录的情况下允许访问的页面-->
 	<regular>true</regular>

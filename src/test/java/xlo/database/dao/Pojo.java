@@ -1,4 +1,4 @@
-package dao;
+package xlo.database.dao;
 
 import xlo.database.annotation.Orm;
 

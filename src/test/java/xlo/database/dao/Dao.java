@@ -1,7 +1,5 @@
-package dao;
+package xlo.database.dao;
 
-import xlo.database.dao.BaseDao;
-import xlo.database.dao.CoreDao;
 import xlo.database.dbc.ConnectDb;
 
 import java.sql.Connection;

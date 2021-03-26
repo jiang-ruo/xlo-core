@@ -11,21 +11,21 @@ import java.util.regex.Pattern;
 
 /**
  * @author XiaoLOrange
- * @time 2020.12.01
+ * @time 2021.03.04
  * @title
  */
 
-public class BaseBean implements BaseBeanIface{
+public interface BeanIface extends BaseBeanIface{
 	//数据校验注解
-	private static Class<Verify> verify = Verify.class;
+	Class<Verify> verify = Verify.class;
 
-	public BaseBean verify(){
+	default BeanIface verify(){
 		//获取类的字段
 		Class clazz = this.getClass();
 		return verify(clazz);
 	}
 
-	private BaseBean verify(Class clazz){
+	default BeanIface verify(Class clazz){
 		Field[] fs = clazz.getDeclaredFields();
 		//字段值
 		Object value;
@@ -46,7 +46,7 @@ public class BaseBean implements BaseBeanIface{
 	 * 数据校验注解
 	 * @return
 	 */
-	private boolean DataVerifyAnno(Field field, Object value){
+	default boolean DataVerifyAnno(Field field, Object value){
 		Verify v = field.getDeclaredAnnotation(verify);
 		if(v == null) return true;
 
@@ -95,5 +95,4 @@ public class BaseBean implements BaseBeanIface{
 		return true;
 
 	}
-
 }

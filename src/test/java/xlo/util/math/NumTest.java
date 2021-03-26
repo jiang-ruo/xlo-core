@@ -1,3 +1,5 @@
+package xlo.util.math;
+
 import org.junit.Test;
 import xlo.infinite.Unsafe;
 import xlo.util.math.NumUtil;

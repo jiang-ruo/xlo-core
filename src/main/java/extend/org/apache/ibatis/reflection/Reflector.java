@@ -34,8 +34,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import extend.org.apache.ibatis.reflection.invoker.*;
 import extend.org.apache.ibatis.reflection.property.PropertyNamer;
-import org.apache.ibatis.reflection.invoker.*;
 
 /**
  * This class represents a cached set of class definition information that

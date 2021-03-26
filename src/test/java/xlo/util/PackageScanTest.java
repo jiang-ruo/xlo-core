@@ -1,3 +1,5 @@
+package xlo.util;
+
 import org.junit.Test;
 import xlo.util.PackageScan;
 

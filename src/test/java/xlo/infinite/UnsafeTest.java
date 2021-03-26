@@ -1,4 +1,6 @@
-import dao.Pojo;
+package xlo.infinite;
+
+import xlo.database.dao.Pojo;
 import org.junit.Test;
 import xlo.infinite.Unsafe;
 

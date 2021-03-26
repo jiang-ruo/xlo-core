@@ -1,10 +1,6 @@
-package dao;
+package xlo.database.dao;
 
 import org.junit.Test;
-import xlo.database.dao.CoreDao;
-import xlo.util.reflect.FieldUtil;
-
-import java.lang.reflect.Field;
 
 /**
  * @author XiaoLOrange

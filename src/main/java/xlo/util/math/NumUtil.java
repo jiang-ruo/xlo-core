@@ -92,7 +92,7 @@ public class NumUtil {
 	 * @return
 	 */
 	public static boolean isNumber(Object obj){
-		return isNum(obj.getClass());
+		return obj == null ? false : isNum(obj.getClass());
 	}
 
 	/**

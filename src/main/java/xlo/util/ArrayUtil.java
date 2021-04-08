@@ -31,4 +31,17 @@ public class ArrayUtil {
 		return result;
 	}
 
+	/**
+	 * 数组os中是否存在target
+	 * @param target
+	 * @param os
+	 * @return
+	 */
+	public static boolean hasObj(Object target, Object... os){
+		for (Object o: os){
+			if(target.equals(o)) return true;
+		}
+		return false;
+	}
+
 }

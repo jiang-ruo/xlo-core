@@ -1,34 +1,32 @@
 package xlo.util.reflect.annotation;
 
+import lombok.Getter;
+import xlo.util.reflect.detail.ClassSimpleDetail;
+
 import java.lang.annotation.Annotation;
 
 /**
  * @author XiaoLOrange
- * @time 2020.11.30
+ * @time 2021.04.08
  * @title
  */
 
-public class AnnoClass{
-
-	private Class clazz;
-	private Annotation[] annos;
+@Getter
+public class AnnoClass {
 
 	/**
-	 *
-	 * @param clazz
-	 * @param annos class的注解
+	 * 指定需要寻找的注解
 	 */
-	public AnnoClass(Class clazz, Annotation[] annos) {
-		this.clazz = clazz;
-		this.annos = annos;
-	}
+	private Annotation[] target;
 
-	public Class getClazz() {
-		return clazz;
-	}
+	/**
+	 * 类信息
+	 */
+	private ClassSimpleDetail csd;
 
-	public Annotation[] getAnnos() {
-		return annos;
+	public AnnoClass(Class c, Annotation[] target){
+		this.target = target;
+		this.csd = new ClassSimpleDetail(c);
 	}
 
 }

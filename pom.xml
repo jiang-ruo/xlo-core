@@ -6,7 +6,7 @@
 
 	<groupId>xlo</groupId>
 	<artifactId>xlo-core</artifactId>
-	<version>1.40</version>
+	<version>1.50</version>
 
 	<dependencies>
 		<!--		目前用于Rsa-->
@@ -28,6 +28,13 @@
 			<artifactId>junit</artifactId>
 			<version>4.13.1</version>
 			<scope>test</scope>
+		</dependency>
+<!--		lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.18</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 <!--			在重写了toString方法的情况下打印地址-->
@@ -77,6 +84,19 @@
 					<target>8</target>
 				</configuration>
 			</plugin>
+<!--			<plugin>-->
+<!--&lt;!&ndash;				编译期保留参数名，而不是改为arg0, arg1&ndash;&gt;-->
+<!--&lt;!&ndash;				该方法为javac中自带的参数功能，仅jdk8之后支持&ndash;&gt;-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<source>1.8</source>-->
+<!--					<target>1.8</target>-->
+<!--					<compilerArgs>-->
+<!--						<compilerArg>-parameters</compilerArg>-->
+<!--					</compilerArgs>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>

@@ -1,30 +1,27 @@
 package xlo.util.reflect.annotation;
 
+import lombok.Getter;
+import xlo.util.reflect.detail.MethodSimpleDetail;
+
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 
 /**
  * @author XiaoLOrange
  * @time 2020.11.30
+ * @time 2020.04.08
  * @title
  */
 
+@Getter
 public class AnnoMethod extends AnnoClass{
 
-	private Method method;
-
 	/**
-	 *
-	 * @param clazz
-	 * @param annos 方法的注解
-	 * @param method
+	 * 方法的详细信息
 	 */
-	public AnnoMethod(Class clazz, Annotation[] annos, Method method) {
-		super(clazz, annos);
-		this.method = method;
-	}
+	private MethodSimpleDetail msd;
 
-	public Method getMethod() {
-		return method;
+	public AnnoMethod(Class c, MethodSimpleDetail msd, Annotation... target) {
+		super(c, target);
+		this.msd = msd;
 	}
 }

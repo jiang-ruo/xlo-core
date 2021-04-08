@@ -1,30 +1,28 @@
 package xlo.util.reflect.annotation;
 
+import lombok.Getter;
+import xlo.util.reflect.detail.FieldDetail;
+
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
 
 /**
  * @author XiaoLOrange
  * @time 2020.11.30
+ * @time 2020.04.08
  * @title
  */
 
+@Getter
 public class AnnoField extends AnnoClass{
 
-	private Field field;
-
 	/**
-	 *
-	 * @param clazz
-	 * @param field
-	 * @param annos field的注解
+	 * 字段的详细信息
 	 */
-	public AnnoField(Class clazz, Annotation[] annos, Field field) {
-		super(clazz, annos);
-		this.field = field;
+	private FieldDetail fd;
+
+	public AnnoField(Class c, FieldDetail fd, Annotation[] target) {
+		super(c, target);
+		this.fd = fd;
 	}
 
-	public Field getField() {
-		return field;
-	}
 }

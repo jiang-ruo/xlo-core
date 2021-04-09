@@ -24,9 +24,19 @@ public class AnnoClass {
 	 */
 	private ClassSimpleDetail csd;
 
-	public AnnoClass(Class c, Annotation[] target){
+	public AnnoClass(){}
+
+	public AnnoClass(Annotation... target){
 		this.target = target;
-		this.csd = new ClassSimpleDetail(c);
+	}
+
+	public AnnoClass(Class clazz, Annotation... target){
+		this.target = target;
+		this.csd = new ClassSimpleDetail(clazz);
+	}
+
+	public void setClazz(Class clazz){
+		this.csd = new ClassSimpleDetail(clazz);
 	}
 
 }

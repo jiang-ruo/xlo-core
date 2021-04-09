@@ -11,7 +11,7 @@ import java.lang.reflect.Parameter;
 public class ParamterDetail extends AbstractElement<Parameter> {
 
 	public ParamterDetail(Parameter param){
-		super.paramter = param;
+		super.element = param;
 		super.name = param.getName();
 		super.type = param.getType();
 		super.annos = param.getAnnotations();

@@ -4,6 +4,7 @@ import lombok.Getter;
 import xlo.util.reflect.detail.MethodSimpleDetail;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 
 /**
  * @author XiaoLOrange
@@ -20,8 +21,13 @@ public class AnnoMethod extends AnnoClass{
 	 */
 	private MethodSimpleDetail msd;
 
-	public AnnoMethod(Class c, MethodSimpleDetail msd, Annotation... target) {
+	public AnnoMethod(Method method, Annotation... target){
+		super(target);
+		this.msd = new MethodSimpleDetail(method);
+	}
+
+	public AnnoMethod(Class c, Method method, Annotation... target) {
 		super(c, target);
-		this.msd = msd;
+		this.msd = new MethodSimpleDetail(method);
 	}
 }

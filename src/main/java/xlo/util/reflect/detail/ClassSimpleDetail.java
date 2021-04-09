@@ -10,7 +10,7 @@ public class ClassSimpleDetail extends AbstractElement<Class> {
 
 	public ClassSimpleDetail(Class clazz){
 		super.name = clazz.getName();
-		super.paramter = clazz;
+		super.element = clazz;
 		super.type = clazz;
 		super.annos = clazz.getAnnotations();
 	}

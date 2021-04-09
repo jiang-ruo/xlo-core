@@ -4,6 +4,7 @@ import lombok.Getter;
 import xlo.util.reflect.detail.FieldDetail;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 
 /**
  * @author XiaoLOrange
@@ -20,9 +21,9 @@ public class AnnoField extends AnnoClass{
 	 */
 	private FieldDetail fd;
 
-	public AnnoField(Class c, FieldDetail fd, Annotation[] target) {
+	public AnnoField(Class c, Field field, Annotation[] target) {
 		super(c, target);
-		this.fd = fd;
+		this.fd = new FieldDetail(field);
 	}
 
 }

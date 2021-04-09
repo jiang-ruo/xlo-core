@@ -25,4 +25,8 @@ public class ParamterMapper extends AbstractElementMapper<Method, ParamterDetail
 		super.names = names.toArray(new String[0]);
 	}
 
+	@Override
+	public Parameter getElement(String name) {
+		return super.parameters.get(name).getElement();
+	}
 }

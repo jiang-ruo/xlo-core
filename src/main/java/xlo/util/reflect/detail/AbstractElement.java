@@ -28,7 +28,7 @@ public abstract class AbstractElement<T extends AnnotatedElement> {
 	 * 方法
 	 * 类
 	 */
-	protected T paramter;
+	protected T element;
 
 	/**
 	 * 方法参数类型

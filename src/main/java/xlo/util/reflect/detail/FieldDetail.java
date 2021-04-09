@@ -11,7 +11,7 @@ import java.lang.reflect.Field;
 public class FieldDetail extends AbstractElement<Field> {
 
 	public FieldDetail(Field field){
-		super.paramter = field;
+		super.element = field;
 		super.name = field.getName();
 		super.type = field.getDeclaringClass();
 		super.annos = field.getAnnotations();

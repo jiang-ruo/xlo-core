@@ -19,7 +19,7 @@ public class MethodSimpleDetail extends AbstractElement<Method> {
 	protected Type declaredType;
 
 	public MethodSimpleDetail(Method method){
-		super.paramter = method;
+		super.element = method;
 		super.name = method.getName();
 		super.type = method.getReturnType();
 		this.declaredType = method.getGenericReturnType();

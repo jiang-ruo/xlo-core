@@ -37,9 +37,7 @@ public abstract class AbstractElementMapper<T extends AnnotatedElement, V extend
 	 */
 	protected Map<String, V> parameters = new HashMap<>();
 
-	public <E extends AnnotatedElement> E getParam(String name){
-		return (E) this.parameters.get(name).getParamter();
-	}
+	public abstract <E extends AnnotatedElement> E getElement(String name);
 
 	public Class getType(String name){
 		return this.parameters.get(name).getType();

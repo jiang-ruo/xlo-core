@@ -1,8 +1,6 @@
 package xlo.util.reflect.annotation;
 
 import xlo.util.PackageScan;
-import xlo.util.reflect.detail.FieldDetail;
-import xlo.util.reflect.detail.MethodSimpleDetail;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
@@ -62,7 +60,7 @@ public class AnnoUtil {
 			ms = clazz.getDeclaredMethods();
 			for (Method m: ms){
 				as = getAnno(m, annos);
-				if(as.length > 0) container.add(new AnnoMethod(clazz, new MethodSimpleDetail(m), as));
+				if(as.length > 0) container.add(new AnnoMethod(clazz, m, as));
 			}
 		}
 		return container;
@@ -89,7 +87,7 @@ public class AnnoUtil {
 			fs = clazz.getDeclaredFields();
 			for(Field f: fs){
 				as = getAnno(f, annos);
-				if(as.length > 0) container.add(new AnnoField(clazz, new FieldDetail(f), as));
+				if(as.length > 0) container.add(new AnnoField(clazz, f, as));
 			}
 		}
 		return container;

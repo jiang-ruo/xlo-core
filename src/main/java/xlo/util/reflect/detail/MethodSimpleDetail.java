@@ -23,6 +23,6 @@ public class MethodSimpleDetail extends AbstractElement<Method> {
 		super.name = method.getName();
 		super.type = method.getReturnType();
 		this.declaredType = method.getGenericReturnType();
-		super.annos = method.getAnnotations();
+		super.setAnnos(method.getAnnotations());
 	}
 }

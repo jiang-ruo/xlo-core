@@ -4,6 +4,8 @@ import lombok.Getter;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author XiaoLOrange
@@ -23,6 +25,7 @@ public abstract class AbstractElement<T extends AnnotatedElement> {
 	protected String name;
 
 	/**
+	 * 元素本身
 	 * 方法参数
 	 * 字段
 	 * 方法
@@ -34,7 +37,7 @@ public abstract class AbstractElement<T extends AnnotatedElement> {
 	 * 方法参数类型
 	 * 字段类型
 	 * 方法返回值类型 - 实际返回类型，声明T返回Object
-	 * 类类型 = paramter
+	 * 类类型 = element
 	 */
 	protected Class type;
 
@@ -42,5 +45,22 @@ public abstract class AbstractElement<T extends AnnotatedElement> {
 	 * 具有的注解
 	 */
 	protected Annotation[] annos;
+
+	/**
+	 * 注解map
+	 * Class - Annotation
+	 */
+	private Map<Class, Annotation> annoMap = new HashMap<>();
+
+	protected void setAnnos(Annotation[] annos){
+		this.annos = annos;
+		for (Annotation anno: annos){
+			annoMap.put(anno.getClass(), anno);
+		}
+	}
+
+	public <E extends Annotation> E getAnnotation(Class<E> clazz){
+		return (E) annoMap.get(clazz);
+	}
 
 }

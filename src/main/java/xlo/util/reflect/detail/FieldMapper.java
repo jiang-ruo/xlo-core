@@ -25,7 +25,7 @@ public class FieldMapper extends AbstractElementMapper<Class, FieldDetail> {
 	}
 
 	@Override
-	public Field getElement(String name) {
-		return super.parameters.get(name).getElement();
+	public FieldDetail getElement(String name) {
+		return super.parameters.get(name);
 	}
 }

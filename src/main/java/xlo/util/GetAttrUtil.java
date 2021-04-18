@@ -1,5 +1,7 @@
 package xlo.util;
 
+import xlo.util.reflect.ReflectFinder;
+
 import java.lang.reflect.Field;
 
 /**
@@ -9,6 +11,24 @@ import java.lang.reflect.Field;
  */
 
 public class GetAttrUtil {
+
+	/**
+	 * 对于obj对象，向上寻找clazz，并获取clazz类中的field字段并取出值
+	 * @param clazz
+	 * @param obj
+	 * @param field
+	 * @return
+	 */
+	public static Object findClassAndGet(Class clazz, Object obj, String field){
+		if(!ReflectFinder.FindClassUtil.hasFather(obj.getClass(), clazz)) return null;
+		Field f = null;
+		try {
+			f = clazz.getDeclaredField(field);
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		}
+		return f == null ? null : get(obj, f);
+	}
 
 	/**
 	 * 获取类中指定字段的属性值
@@ -23,7 +43,7 @@ public class GetAttrUtil {
 		} catch (NoSuchFieldException e) {
 			e.printStackTrace();
 		}
-		return get(obj, fild);
+		return fild == null ? null : get(obj, fild);
 	}
 
 	/**

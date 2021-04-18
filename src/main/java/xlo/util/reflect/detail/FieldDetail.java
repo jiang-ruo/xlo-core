@@ -14,7 +14,7 @@ public class FieldDetail extends AbstractElement<Field> {
 		super.element = field;
 		super.name = field.getName();
 		super.type = field.getDeclaringClass();
-		super.annos = field.getAnnotations();
+		super.setAnnos(field.getAnnotations());
 	}
 
 }

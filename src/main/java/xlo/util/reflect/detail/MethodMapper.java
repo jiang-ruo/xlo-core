@@ -12,7 +12,7 @@ import java.util.Map;
  * @title 保存方法中的所有类
  */
 
-public class MethodMapper extends AbstractElementMapper<Class, MethodDetail> {
+public class MethodMapper extends AbstractElementMapper<Class, MethodSimpleDetail> {
 
 	/**
 	 * 方法名 - 方法全名
@@ -26,7 +26,7 @@ public class MethodMapper extends AbstractElementMapper<Class, MethodDetail> {
 		String name;
 		for (Method m: ms){
 			name = parseMethodName(m);
-			super.parameters.put(name, new MethodDetail(m));
+			super.parameters.put(name, new MethodSimpleDetail(m));
 			names.add(name);
 		}
 		super.names = names.toArray(new String[0]);
@@ -69,8 +69,8 @@ public class MethodMapper extends AbstractElementMapper<Class, MethodDetail> {
 	}
 
 	@Override
-	public Method getElement(String name) {
+	public MethodSimpleDetail getElement(String name) {
 		name = nameMap(name);
-		return super.parameters.get(name).getElement();
+		return super.parameters.get(name);
 	}
 }

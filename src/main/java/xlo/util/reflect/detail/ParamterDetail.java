@@ -14,7 +14,7 @@ public class ParamterDetail extends AbstractElement<Parameter> {
 		super.element = param;
 		super.name = param.getName();
 		super.type = param.getType();
-		super.annos = param.getAnnotations();
+		super.setAnnos(param.getAnnotations());
 	}
 
 }

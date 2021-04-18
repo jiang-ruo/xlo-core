@@ -3,6 +3,8 @@ package xlo.util.reflect;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author XiaoLOrange
@@ -38,6 +40,18 @@ public class MethodTest {
 		System.out.println(m2.toGenericString());
 		System.out.println(m.equals(m2));
 		System.out.println(m.toString().equals(m2.toString()));
+	}
+
+	@Test
+	public void mt3(){
+		Class clazz = MtBean.class;
+		Method m = clazz.getDeclaredMethods()[0];
+		Method m2 = clazz.getDeclaredMethods()[0];
+		Map<Method, Boolean> map = new HashMap<>();
+		map.put(m, true);
+		System.out.println(map.get(m2));
+		System.out.println(m.hashCode());
+		System.out.println(m2.hashCode());
 	}
 
 }

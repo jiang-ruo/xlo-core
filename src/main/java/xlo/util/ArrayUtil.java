@@ -38,6 +38,7 @@ public class ArrayUtil {
 	 * @return
 	 */
 	public static boolean hasObj(Object target, Object... os){
+		if(target == null) return false;
 		for (Object o: os){
 			if(target.equals(o)) return true;
 		}

@@ -13,7 +13,7 @@ public class FieldDetail extends AbstractElement<Field> {
 	public FieldDetail(Field field){
 		super.element = field;
 		super.name = field.getName();
-		super.type = field.getDeclaringClass();
+		super.type = field.getType();
 		super.setAnnos(field.getAnnotations());
 	}
 

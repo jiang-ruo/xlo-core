@@ -97,7 +97,7 @@ public abstract class AbstractElementMapper<T extends AnnotatedElement, V extend
 		 */
 		@Override
 		public boolean hasNext() {
-			return size - 1 >= cursor;
+			return cursor < size;
 		}
 
 		/**

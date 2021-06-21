@@ -1,5 +1,7 @@
 package xlo.util.reflect.detail;
 
+import xlo.util.ClassUtil;
+
 /**
  * @author XiaoLOrange
  * @time 2021.04.08
@@ -7,6 +9,10 @@ package xlo.util.reflect.detail;
  */
 
 public class ClassSimpleDetail extends AbstractElement<Class> {
+
+	public ClassSimpleDetail(Object obj){
+		this(ClassUtil.getClass(obj));
+	}
 
 	public ClassSimpleDetail(Class clazz){
 		super.name = clazz.getName();

@@ -10,23 +10,23 @@ import java.util.ArrayList;
  * @title 保存方法中的所有参数
  */
 
-public class ParamterMapper extends AbstractElementMapper<Method, ParamterDetail> {
+public class ParameterMapper extends AbstractElementMapper<Method, ParameterDetail> {
 
-	public ParamterMapper(Method m){
+	public ParameterMapper(Method m){
 		super.owner = m;
 		Parameter[] ps = m.getParameters();
 		ArrayList<String> names = new ArrayList<>(ps.length);
 		String name;
 		for (Parameter p: ps){
 			name = p.getName();
-			super.parameters.put(name, new ParamterDetail(p));
+			super.parameters.put(name, new ParameterDetail(p));
 			names.add(name);
 		}
 		super.names = names.toArray(new String[0]);
 	}
 
 	@Override
-	public ParamterDetail getElement(String name) {
+	public ParameterDetail getElement(String name) {
 		return super.parameters.get(name);
 	}
 }

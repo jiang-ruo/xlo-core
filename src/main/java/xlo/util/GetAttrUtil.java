@@ -31,7 +31,7 @@ public class GetAttrUtil {
 	}
 
 	/**
-	 * 获取类中指定字段的属性值
+	 * 获取类中指定字段的属性值，仅能获取obj的字段
 	 * @param obj
 	 * @param field
 	 * @return
@@ -47,7 +47,7 @@ public class GetAttrUtil {
 	}
 
 	/**
-	 * 获取类中指定字段的属性值
+	 * 获取类中指定字段的属性值，仅能获取obj的字段
 	 * @param obj
 	 * @param field
 	 * @return

@@ -22,6 +22,10 @@ public class ClassDetail extends ClassSimpleDetail {
 	 */
 	private MethodMapper mm;
 
+	public ClassDetail(Object obj){
+		super(obj);
+	}
+
 	public ClassDetail(Class clazz){
 		super(clazz);
 		this.fm = new FieldMapper(clazz);

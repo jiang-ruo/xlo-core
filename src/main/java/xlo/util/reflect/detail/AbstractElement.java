@@ -1,11 +1,10 @@
 package xlo.util.reflect.detail;
 
 import lombok.Getter;
-import xlo.util.adapter.ProxyAdapter;
+import xlo.util.ClassUtil;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.AnnotatedElement;
-import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,9 +56,7 @@ public abstract class AbstractElement<T extends AnnotatedElement> {
 	protected void setAnnos(Annotation[] annos){
 		this.annos = annos;
 		for (Annotation anno: annos){
-			// 处理JDK代理
-			if (anno instanceof Proxy) annoMap.put(ProxyAdapter.ProxyPrototypeAdapter(anno), anno);
-			annoMap.put(anno.getClass(), anno);
+			annoMap.put(ClassUtil.getClass(anno), anno);
 		}
 	}
 

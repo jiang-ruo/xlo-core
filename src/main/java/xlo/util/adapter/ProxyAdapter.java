@@ -22,10 +22,9 @@ public class ProxyAdapter {
 	public static Class ProxyPrototypeAdapter(Object proxy){
 		if(proxy instanceof Proxy){
 			Object h = GetAttrUtil.findClassAndGet(PROXY_CLASS, proxy, "h");
-			if(h == null) return null;
-			return (Class) GetAttrUtil.get(h, "type");
+			if(h != null) return (Class) GetAttrUtil.get(h, "type");
 		}
-		return null;
+		return proxy.getClass();
 	}
 
 }

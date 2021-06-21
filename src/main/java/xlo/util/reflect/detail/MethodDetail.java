@@ -16,11 +16,11 @@ public class MethodDetail extends MethodSimpleDetail {
 	/**
 	 * 方法中参数的详细信息
 	 */
-	private ParamterMapper pm;
+	private ParameterMapper pm;
 
 	public MethodDetail(Method method){
 		super(method);
-		this.pm = new ParamterMapper(method);
+		this.pm = new ParameterMapper(method);
 	}
 
 }

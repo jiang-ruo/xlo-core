@@ -8,9 +8,9 @@ import java.lang.reflect.Parameter;
  * @title
  */
 
-public class ParamterDetail extends AbstractElement<Parameter> {
+public class ParameterDetail extends AbstractElement<Parameter> {
 
-	public ParamterDetail(Parameter param){
+	public ParameterDetail(Parameter param){
 		super.element = param;
 		super.name = param.getName();
 		super.type = param.getType();

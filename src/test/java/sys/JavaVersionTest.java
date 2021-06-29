@@ -1,10 +1,6 @@
 package sys;
 
 import org.junit.Test;
-import xlo.database.dbc.ConnectDb;
-import xlo.util.math.RandomUtil;
-
-import java.sql.Connection;
 
 /**
  * @author XiaoLOrange

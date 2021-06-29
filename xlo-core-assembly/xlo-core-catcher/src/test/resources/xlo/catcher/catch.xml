@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<xlo.catcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xmlns="http://xlo/xsd/xlo.catcher"
-		 xsi:schemaLocation="http://xlo/xsd/xlo.catcher
-		 https://raw.githubusercontent.com/jiang-ruo/xlo-core/main/src/main/resources/xlo/xlo.catcher/xlo.catcher.xsd">
+<catcher xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://xlo/xsd/catcher"
+		 xsi:schemaLocation="http://xlo/xsd/catcher
+		 https://raw.githubusercontent.com/jiang-ruo/xlo-core/main/src/main/resources/xlo/catcher/catcher.xsd">
 
 <!--	未登录的情况下允许访问的页面-->
 	<regular>true</regular>
@@ -21,4 +21,4 @@
 	<catch id="block" regular="false">
 		<target>/backstage/.eslintrc.js</target>
 	</catch>
-</xlo.catcher>
+</catcher>
